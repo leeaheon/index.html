@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Animated Town</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="kjh.css">
+	<script defer src="js/ie.js"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Tilt+Prism&display=swap');
+		</style>
+</head>
+<body>
+	<section>
+		<article class="sky">
+			<img src="sun.png" class="sun" />
+			<img src="cloud1.png" class="cloud1" />
+			<img src="cloud2.png" class="cloud2" />
+		</article>
+
+		<article class="town">
+			<img src="circle.png" class="circle" />
+			<img src="town_night.png" class="night" />
+			<img src="town_day.png" class="day" />	
+		</article>
+
+		<article class="people">
+			<img src="man.png" class="man" />
+			<img src="family.png" class="family" />
+		</article>
+	</section>
+	
+<h1>Have a Good Day!! </h1>
+<script>
+	function getRandomColor() {
+		const letters = '0123456789ABCDEF';
+		let color = '#';
+		for (let i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+		return color;
+	}
+
+	function changeBackgroundColor() {
+		document.body.style.backgroundColor = getRandomColor();
+	}
+
+	setInterval(changeBackgroundColor, 5000); const cloud1 = document.querySelector('.cloud1');
+	const cloud2 = document.querySelector('.cloud2');
+
+	document.addEventListener('mousemove', (e) => {
+		const mouseX = e.clientX;
+		const mouseY = e.clientY;
+
+		cloud1.style.left = mouseX * 0.1 + 'px';
+		cloud1.style.top = mouseY * 0.1 - 30 + 'px';
+
+		cloud2.style.left = mouseX * 0.05 + 'px';
+		cloud2.style.top = mouseY * 0.05 + 20 + 'px';
+	});
+</script>
+
+</body>
+</html>
